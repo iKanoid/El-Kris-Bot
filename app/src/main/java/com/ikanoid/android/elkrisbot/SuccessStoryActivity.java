@@ -26,7 +26,7 @@ public class SuccessStoryActivity extends YouTubeBaseActivity {
         YouTubePlayerView youTubePlayerView =
                 (YouTubePlayerView) findViewById(R.id.videoView);
 
-        youTubePlayerView.initialize("Youtube api key",
+        youTubePlayerView.initialize("AIzaSyD-yoiJgAtvffsODDEnCQdrekJNKsz6sm8",
                 new YouTubePlayer.OnInitializedListener() {
                     @Override
                     public void onInitializationSuccess(YouTubePlayer.Provider provider,
