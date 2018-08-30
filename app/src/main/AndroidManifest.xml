@@ -27,6 +27,11 @@
 
         </activity>
 
+        <!--Splashscreen-->
+        <activity android:name=".SuccessStoryActivity">
+
+        </activity>
+
         <!-- Main Activity -->
         <activity android:name=".MainActivity">
             <intent-filter>
@@ -36,5 +41,7 @@
             </intent-filter>
         </activity>
     </application>
+
+
 
 </manifest>

@@ -32,13 +32,16 @@ dependencies {
     implementation 'com.google.code.gson:gson:2.8.5'
     implementation 'commons-io:commons-io:2.4'
 
-
     //Butterknife library
     implementation 'com.jakewharton:butterknife:8.8.1'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
 
     //Mindork's lottie library
     implementation 'com.airbnb.android:lottie:2.5.5'
+
+    //Youtube api
+    implementation files('libs/YouTubeAndroidPlayerApi.jar')
+    implementation 'com.google.apis:google-api-services-youtube:v3-rev181-1.22.0'
 
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'

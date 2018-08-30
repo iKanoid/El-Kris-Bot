@@ -1,5 +1,6 @@
 package com.ikanoid.android.elkrisbot;
 
+import android.content.Intent;
 import android.net.wifi.WifiConfiguration;
 import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
@@ -21,6 +22,8 @@ import ai.api.model.AIResponse;
 import ai.api.model.Metadata;
 import ai.api.model.Status;
 import ai.api.ui.AIDialog;
+import butterknife.BindView;
+import butterknife.ButterKnife;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
@@ -32,8 +35,9 @@ public class MainActivity extends BaseActivity implements AIDialog.AIDialogListe
     private static final String TAG = MainActivity.class.getName();
 
     private AIDialog aiDialog;
-    TextView txt;
-    TextView userTxt;
+    @BindView(R.id.textView) TextView txt;
+    @BindView(R.id.userTextView) TextView userTxt;
+    @BindView(R.id.micBtn) Button micButton;
 
     private Gson gson = GsonFactory.getGson();
 
@@ -55,10 +59,7 @@ public class MainActivity extends BaseActivity implements AIDialog.AIDialogListe
         aiDialog = new AIDialog(this, config);
         aiDialog.setResultsListener(this);
 
-        txt = (TextView)findViewById(R.id.textView);
-        userTxt = (TextView)findViewById(R.id.userTextView);
-
-        Button micButton = (Button)findViewById(R.id.micBtn);
+        ButterKnife.bind(this);
         micButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -80,8 +81,6 @@ public class MainActivity extends BaseActivity implements AIDialog.AIDialogListe
         runOnUiThread(new Runnable() {
             @Override
             public void run() {
-
-
 
                 final ai.api.model.Result result = response.getResult();
                 final String speech = result.getFulfillment().getSpeech();
@@ -113,5 +112,10 @@ public class MainActivity extends BaseActivity implements AIDialog.AIDialogListe
                 txt.setText("");
             }
         });
+    }
+
+    public void aboutBtn(View view) {
+        Intent intent = new Intent(this, SuccessStoryActivity.class);
+        startActivity(intent);
     }
 }

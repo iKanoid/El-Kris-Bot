@@ -78,6 +78,12 @@
                 android:text=""
                 android:textAlignment="center"
                 android:textAppearance="?android:attr/textAppearanceMedium" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="aboutBtn"
+                android:layout_gravity="center_horizontal"/>
         </LinearLayout>
     </RelativeLayout>
 

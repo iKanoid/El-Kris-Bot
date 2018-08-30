@@ -21,4 +21,13 @@
     <string name="play_again_desc">To see the welcome slider again, goto Settings -> apps -> welcome slider -> clear data</string>
     <string name="play_again">Play Again</string>
     <string name="resultsSubmitted">Sent</string>
+
+    <!-- Display text for fragment about us -->
+    <string name="about_us_text">Andela invests in Africa’s most
+    talented software engineers
+		to help companies solve the technical talent shortage
+		and build high-performing distributed engineering teams.
+		Backed by Chan Zuckerberg Initiative, GV, and Spark Capital,
+		Andela is catalyzing an interconnected global tech ecosystem.
+    </string>
 </resources>
