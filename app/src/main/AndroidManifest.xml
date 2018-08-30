@@ -22,18 +22,21 @@
             </intent-filter>
         </activity>
 
-        <!--Splashscreen-->
-        <activity android:name=".SplashscreenActivity">
+        <!--Splash screen-->
+        <activity android:name=".SplashscreenActivity"
+            android:screenOrientation="portrait">
 
         </activity>
 
-        <!--Splashscreen-->
-        <activity android:name=".SuccessStoryActivity">
+        <!--Success story-->
+        <activity android:name=".SuccessStoryActivity"
+            android:screenOrientation="portrait">
 
         </activity>
 
         <!-- Main Activity -->
-        <activity android:name=".MainActivity">
+        <activity android:name=".MainActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
 
                 <category android:name="android.intent.category.DEFAULT" />

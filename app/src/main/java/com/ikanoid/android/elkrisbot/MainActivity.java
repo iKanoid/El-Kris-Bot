@@ -8,6 +8,8 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
 import javax.xml.transform.Result;
@@ -24,7 +26,11 @@ import ai.api.model.Status;
 import ai.api.ui.AIDialog;
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
+import com.airbnb.lottie.LottieAnimationView;
+import com.daimajia.androidanimations.library.Techniques;
+import com.daimajia.androidanimations.library.YoYo;
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
 
@@ -38,6 +44,10 @@ public class MainActivity extends BaseActivity implements AIDialog.AIDialogListe
     @BindView(R.id.textView) TextView txt;
     @BindView(R.id.userTextView) TextView userTxt;
     @BindView(R.id.micBtn) Button micButton;
+    @BindView(R.id.responseLbl) TextView responseTxt;
+    @BindView(R.id.userRequestLbl) TextView userRequestTxt;
+    LinearLayout introMessageLayout;
+    LottieAnimationView animation_view;
 
     private Gson gson = GsonFactory.getGson();
 
@@ -60,12 +70,24 @@ public class MainActivity extends BaseActivity implements AIDialog.AIDialogListe
         aiDialog.setResultsListener(this);
 
         ButterKnife.bind(this);
-        micButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                aiDialog.showAndListen();
-            }
-        });
+        introMessageLayout = (LinearLayout)findViewById(R.id.introMessageLayout);
+        animation_view = (LottieAnimationView)findViewById(R.id.animation_view);
+
+        userTxt.setVisibility(View.INVISIBLE);
+        txt.setVisibility(View.INVISIBLE);
+        responseTxt.setVisibility(View.INVISIBLE);
+        userRequestTxt.setVisibility(View.INVISIBLE);
+
+    }
+
+    @OnClick(R.id.micBtn)
+    public void onListen(View view){
+        introMessageLayout.setVisibility(View.INVISIBLE);
+        animation_view.setVisibility(View.INVISIBLE);
+        YoYo.with(Techniques.Tada)
+                .duration(700)
+                .playOn(findViewById(R.id.micBtn));
+        aiDialog.showAndListen();
     }
 
     @Override
@@ -84,8 +106,13 @@ public class MainActivity extends BaseActivity implements AIDialog.AIDialogListe
 
                 final ai.api.model.Result result = response.getResult();
                 final String speech = result.getFulfillment().getSpeech();
+                userTxt.setVisibility(View.VISIBLE);
+                userRequestTxt.setVisibility(View.VISIBLE);
 
                 userTxt.setText(result.getResolvedQuery());
+
+                txt.setVisibility(View.VISIBLE);
+                responseTxt.setVisibility(View.VISIBLE);
                 txt.setText(speech);
                 TTS.speak(speech);
 
@@ -115,6 +142,9 @@ public class MainActivity extends BaseActivity implements AIDialog.AIDialogListe
     }
 
     public void aboutBtn(View view) {
+        YoYo.with(Techniques.Wobble)
+                .duration(1000)
+                .playOn(findViewById(R.id.aboutUsBtn));
         Intent intent = new Intent(this, SuccessStoryActivity.class);
         startActivity(intent);
     }

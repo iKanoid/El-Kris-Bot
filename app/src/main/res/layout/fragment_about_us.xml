@@ -1,37 +1,78 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true">
 
-        <!-- TODO: Update blank fragment layout -->
-        <LinearLayout
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/chatBotBtn"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="16dp"
+            android:elevation="4dp"
+            android:background="@drawable/ic_action_back"
+            android:onClick="chatbotBtn" />
+
+        <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:fillViewport="true"
+            android:layout_below="@id/chatBotBtn">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/activity_horizontal_margin"
-                android:text="@string/about_us_text"
-                android:textAlignment="center"
-                android:textAppearance="?android:textAppearanceMedium"
-                android:textIsSelectable="true" />
-
-            <com.google.android.youtube.player.YouTubePlayerView
-                android:id="@+id/videoView"
-                android:layout_margin="16dp"
+            <!-- TODO: Update blank fragment layout -->
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_gravity="center"
-                android:elevation="4dp"/>
+                android:orientation="vertical"
+                android:elevation="4dp">
 
-        </LinearLayout>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="About us"
+                    android:textStyle="bold"
+                    android:gravity="center_horizontal"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Success story"
+                    android:gravity="center_horizontal"/>
+
+                <com.google.android.youtube.player.YouTubePlayerView
+                    android:id="@+id/videoView"
+                    android:layout_margin="16dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:elevation="4dp"/>
 
 
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/activity_horizontal_margin"
+                    android:text="@string/about_us_text"
+                    android:textAlignment="center"
+                    android:textAppearance="?android:textAppearanceMedium"
+                    android:textIsSelectable="true"
+                    android:padding="10dp"
+                    android:background="#2196f3"
+                    android:elevation="4dp"
+                    android:textColor="#fff"/>
 
+            </LinearLayout>
+        </FrameLayout>
 
-</FrameLayout>
+    </RelativeLayout>
+
+</ScrollView>
