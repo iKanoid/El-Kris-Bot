@@ -3,4 +3,4 @@
 
 Dialogflow Guide: https://dialogflow.com | https://github.com/dialogflow/dialogflow-android-client
 
-Link to download the app: https://drive.google.com/open?id=1rs4LLZn34UzFNrvi0L-VDCQRF14tIKOM
+Download here: https://drive.google.com/open?id=1rs4LLZn34UzFNrvi0L-VDCQRF14tIKOM
